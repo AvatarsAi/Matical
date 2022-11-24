@@ -5,7 +5,8 @@ Matical is a C++ Library for maths, covering most aspect in mathematics, with hi
 FEATURES:
 Memory Safety,
 Runtime Safety,
-Easy to install
-Complete System portability
-Modern C++
-Fully Tested
+Easy to install,
+Complete System portability,
+Modern C++,
+Fully Tested.
+
