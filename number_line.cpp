@@ -1,5 +1,5 @@
-namespace pulgaCpp{ //Generate namespace library
-    inline namespace version_1{ //"local" namespace library
+namespace matical{ //Generate namespace library 
+    inline namespace version_1.0{ //"local" namespace library pls include or import <limits>
         class number_line{
             signed long long int pointer{}; // "pointer" invariant for pulgacpp starts at zero
 
@@ -47,8 +47,8 @@ namespace pulgaCpp{ //Generate namespace library
             auto min(){ return std::numeric_limits<long long>::min();}
             auto clear(){return pointer = 0;}
             auto point(){return pointer;}
-            auto prev(int prev = 1){return pointer - prev;}
-            auto next(int next = 1 ){ return pointer + next;}
+            auto prev(int prev = 1){return pointer -= prev;}
+            auto next(int next = 1 ){ return pointer += next;}
 
         };
 
