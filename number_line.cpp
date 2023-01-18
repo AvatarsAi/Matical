@@ -1,5 +1,5 @@
-namespace matical{ //Generate namespace library 
-    inline namespace version_1.0{ //"local" namespace library pls include or import <limits>
+namespace matical{ //Generate namespace library
+    inline namespace version_1{ //"local" namespace library
         class number_line{
             signed long long int pointer{}; // "pointer" invariant for pulgacpp starts at zero
 
@@ -14,36 +14,41 @@ namespace matical{ //Generate namespace library
             operator >>(long long arg){ return pointer += arg;}
             operator()(long long arg){return pointer += arg;}
             operator *(){return pointer;}
-            operator==(long long arg){return (pointer == arg)?true:false;}
+            operator&(){return &this->pointer;}
+            operator==(long long arg){return (pointer == *arg)?true:false;}
             operator==(number_line&arg){return (pointer == *arg)?true:false;}
             operator==(number_line&&arg){return (pointer == *arg)?true:false;}
 
-            operator!=(long long arg){return (pointer != arg)?true:false;}
+            operator!=(long long arg){return (pointer != *arg)?true:false;}
             operator!=(number_line&arg){return (pointer != *arg)?true:false;}
             operator!=(number_line&&arg){return (pointer != *arg)?true:false;}
 
 
-            operator<(long long arg){return (pointer < arg)?true:false;}
+            operator<(long long arg){return (pointer < *arg)?true:false;}
             operator<(number_line&arg){return (pointer < *arg)?true:false;}
             operator<(number_line&&arg){return (pointer < *arg)?true:false;}
 
-            operator>(long long arg){return (pointer > arg)?true:false;}
+            operator>(long long arg){return (pointer > *arg)?true:false;}
             operator>(number_line&arg){return (pointer > *arg)?true:false;}
             operator>(number_line&&arg){return (pointer > *arg)?true:false;}
 
-            operator>=(long long arg){return (pointer >= arg)?true:false;}
+            operator<=>(long long arg){return (pointer <=> *arg)?true:false;}
+            operator<=>(number_line&arg){return (pointer <=> *arg)?true:false;}
+            operator<=>(number_line&&arg){return (pointer <=> *arg)?true:false;}
+
+            operator>=(long long arg){return (pointer >= *arg)?true:false;}
             operator>=(number_line&arg){return (pointer >= *arg)?true:false;}
             operator>=(number_line&&arg){return (pointer >= *arg)?true:false;}
 
 
-            operator<=(long long arg){return (pointer <= arg)?true:false;}
+            operator<=(long long arg){return (pointer <= *arg)?true:false;}
             operator<=(number_line&arg){return (pointer <= *arg)?true:false;}
             operator<=(number_line&&arg){return (pointer <= *arg)?true:false;}
 
 
 
             auto get(){ return this->pointer; }
-            auto max(){ return std::numeric_limits<long long>::max(); }
+            auto max(){ return std::numeric_limits<long long>::max();}
             auto min(){ return std::numeric_limits<long long>::min();}
             auto clear(){return pointer = 0;}
             auto point(){return pointer;}
